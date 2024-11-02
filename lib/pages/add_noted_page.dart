@@ -32,11 +32,11 @@ class _AddPageState extends State<AddPage> {
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           children: [
             TextFormField(
               controller: titleController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 label: Text('Title'),
                 border: OutlineInputBorder(),
               ),
@@ -47,12 +47,12 @@ class _AddPageState extends State<AddPage> {
                 return null;
               },
             ),
-            const SizedBox(
+            SizedBox(
               height: 16,
             ),
             TextFormField(
               controller: contentController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 label: Text('Content'),
                 border: OutlineInputBorder(),
               ),
@@ -64,14 +64,14 @@ class _AddPageState extends State<AddPage> {
                 return null;
               },
             ),
-            const SizedBox(
+            SizedBox(
               height: 16,
             ),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {}
               },
-              child: const Text('Add Note'),
+              child: Text('Add Note'),
             ),
           ],
         ),
