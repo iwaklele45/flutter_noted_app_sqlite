@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_noted_app/data/datasource/local_datasource.dart';
+import 'package:flutter_sqlite_noted_app/data/models/note.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({super.key});
@@ -74,7 +76,25 @@ class _AddPageState extends State<AddPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {}
+                if (_formKey.currentState!.validate()) {
+                  Note note = Note(
+                    title: titleController.text,
+                    content: contentController.text,
+                    createdAt: DateTime.now(),
+                  );
+
+                  LocalDatasource().insertNote(note);
+                  titleController.clear();
+                  contentController.clear();
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Note Berhasil Ditambah'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                  Navigator.pop(context, note);
+                }
               },
               child: const Text('Add Note'),
             ),
