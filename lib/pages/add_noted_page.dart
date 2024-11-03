@@ -24,19 +24,24 @@ class _AddPageState extends State<AddPage> {
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
       ),
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           children: [
             TextFormField(
               controller: titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Text('Title'),
                 border: OutlineInputBorder(),
               ),
@@ -47,12 +52,12 @@ class _AddPageState extends State<AddPage> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             TextFormField(
               controller: contentController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Text('Content'),
                 border: OutlineInputBorder(),
               ),
@@ -64,14 +69,14 @@ class _AddPageState extends State<AddPage> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {}
               },
-              child: Text('Add Note'),
+              child: const Text('Add Note'),
             ),
           ],
         ),

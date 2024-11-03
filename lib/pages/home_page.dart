@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sqlite_noted_app/pages/add_noted_page.dart';
+import 'package:flutter_sqlite_noted_app/pages/detail_noted_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,9 +35,21 @@ class _HomePageState extends State<HomePage> {
           childAspectRatio: 0.8,
         ),
         itemBuilder: (context, index) {
-          return Card(
-            child: Container(
-              color: Colors.red,
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const DetalPage();
+                  },
+                ),
+              );
+            },
+            child: Card(
+              child: Container(
+                color: Colors.red,
+              ),
             ),
           );
         },
